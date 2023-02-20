@@ -1,0 +1,81 @@
+    {% extends "base.html" %} 
+    <br>
+    <br>      
+{% block content %}
+
+     <style>
+         table,th,td{
+            {% comment %} table-layout:fixed; {% endcomment %}
+             max-width:70% !important; 
+            margin-left:150px;
+            border: 2px solid black !important;  
+            padding:30px;
+              
+        } 
+        td,th{
+            text-align:center;
+            padding:10px;
+        }
+          
+         input[type=search]
+        {
+          margin-left:-20px;
+          max-width:40%;
+        }
+         form{
+          {% comment %} margin-left:100px;
+          padding:20px; {% endcomment %}
+          display:flex;
+        }  
+        
+        
+        
+    </style>
+    <div class="both" style="padding:20px;">
+    <div class="form" style="margin-left:150px; width:40%; float:left; ">
+    <form class="search" method="GET" action="/search/">
+      {% csrf_token %}
+      <input class="form-control" type="text" name='post' placeholder="search here">
+      <button class='btn' style="background:Orange" type="submit">Search</button>  
+    </form>
+    <br>
+    </div>
+    <div class="add" style="float:right; margin-right:290px;">
+      <a href="/create" class="btn btn-primary" style="background-color:Green">Add New Record</a>
+    </div>
+  </div>
+    <br>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% comment %} {{posts}} {% endcomment %}
+        {% for post in post_list%}
+      <tr>
+        <th scope="row">{{post.title}}</th>
+        <td>{{post.author}}</td>
+        <td>{{post.created_on|date:"M d, Y"}}</td>
+        <td>{{post.status}}</td>
+        <td>
+            
+            <a href="{% url 'update' post.id  %}" class="btn btn-primary" >Update</a>
+            <a href="{% url 'delete' post.id  %}" class="btn btn-primary" style="background-color:Red">Delete</a>
+        </td>
+      </tr>
+      
+      {% endfor %}
+    </tbody>
+</table>
+
+
+{% comment %} <div>
+  <div><a href="/create" class="btn btn-primary" style="background-color:Green">Add New Record</a></div>
+</div> {% endcomment %}
+{%endblock%}

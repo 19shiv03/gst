@@ -1,0 +1,82 @@
+{% extends "base.html" %} 
+{% block content %}
+      <style>
+       h3{ 
+              color:white;
+              text-align:center;
+              margin: 25px 50px 75px;
+              border-radius:10px;
+              background-color: #3398E1 ;
+       }
+        .contain{
+             background-color:#e9f0f2;
+             margin-left: 200px;
+             margin-right: 200px;
+             padding:20px;
+             border-radius:20px;
+             margin-bottom:20px;
+        }
+        
+  
+      </style>
+      
+            <h3>Enter Details Of Your Post</h3>
+           <div class="contain">
+            <form method="POST" class="post-form" action="/create/">  
+                    {% csrf_token %}  
+                <div class="container">  
+             
+                {% comment %} <div class="form-group">  
+                <label class="col-sm-1 col-form-label"></label>  
+                <div class="col-sm-4">  
+                <h2 >Enter Details</h2>  
+                </div>  
+              </div>   {% endcomment %}
+              <br>
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label" >Title:</label>  
+                <div class="col-sm-4">  
+                  {{ form.title }}  
+                </div>  
+              </div> 
+              <br> 
+              <div class="form-group row">  
+                <label class="col-sm-2 col-form-label" >Author:</label>  
+                <div class="col-sm-4">  
+                  {{ form.author }}  
+                </div>  
+              </div>  
+              <br>
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label" >Content:</label>  
+                <div class="col-sm-4">  
+                  {{ form.content }}  
+                </div>  
+              </div> 
+              <br> 
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label" >Status:</label>  
+                <div class="col-sm-4">  
+                  {{ form.status }}  
+                </div>  
+              </div>
+              <br> 
+                <div class="form-group row">  
+                <label class="col-sm-2 col-form-label" >Date:</label>  
+                <div class="col-sm-4">  
+                  {{ form.created_on }}  
+                </div>  
+              </div> 
+              <br> 
+                 <div class="form-group row">   
+                 <label class="col-sm-1 col-form-label"></label>   
+                 <div class="col-sm-4">   
+                 <button type="submit" class="btn btn-primary">Submit</button>   
+                 </div>   
+              </div>   
+                </div>  
+              </div>
+            </form>  
+          
+{% endblock content %}    
+     

@@ -1,0 +1,33 @@
+{% extends "base.html" %} 
+{% block content %}
+<style>
+	h3{ 
+		color:white;
+		text-align:center;
+		margin: 25px 50px 75px;
+		border-radius:10px;
+		background-color: #3398E1 ;
+ }
+  .form{
+	   background-color:#e9f0f2;
+	   margin-left: 200px;
+	   margin-right: 200px;
+	   padding:30px;
+	   border-radius:20px;
+  }
+  input[type=submit]{
+	background-color: #adddef;
+  }
+	
+</style>
+<h3>Update Your Post</h3>
+<div class="form">
+ <form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Save">
+</form> 
+</div>
+{% endblock content%} 
+
+
