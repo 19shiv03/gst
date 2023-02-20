@@ -42,12 +42,7 @@ class Myview(ListView):
         return Post.objects.all()
 
 
-# def SearchView(request):
-#     query=request.POST.get('post')
-#     print(query)
-#     posts=Post.objects.filter(title__ic+ontains=query)
-#     print(posts)
-#     return render(request,'search.html',{'posts':posts})
+
     
 class SearchView(ListView):
     model = Post
@@ -55,8 +50,7 @@ class SearchView(ListView):
     
     def get_queryset(self, *args, **kwargs):
         title = self.request.GET.get('post')
-        # print(f"title: {title}")
-        # print( Post.objects.filter(title=title))
+       
         return Post.objects.filter(title=title)
 
         
