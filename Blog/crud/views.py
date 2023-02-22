@@ -50,8 +50,7 @@ class SearchView(ListView):
     
     def get_queryset(self, *args, **kwargs):
         title = self.request.GET.get('post')
-        # return Post.objects.filter(title=title)
-        print(title)
+        
         if title:
            result=Post.objects.filter(title=title)
            if len(result)==0:

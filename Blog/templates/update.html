@@ -22,7 +22,7 @@
 </style>
 <h3>Update Your Post</h3>
 <div class="form">
- <form method="post">
+ <form method="post" style="margin-left:10px;">
 	{% csrf_token %}
 	{{ form.as_p }}
 	<input type="submit" value="Save">
