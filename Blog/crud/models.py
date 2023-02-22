@@ -28,9 +28,9 @@ class Post(models.Model):
     def clean(self):
         self.slug = str(uuid.uuid4()) 
         
-    def date(self):
-         self.created_on=''
-         self.created_on=str(self.created_on.year)+'-'+str(self.created_on.month)+'-'+str(self.created_on.day)
+    # def date(self):
+    #      self.created_on=''
+    #      self.created_on=str(self.created_on.year)+'-'+str(self.created_on.month)+'-'+str(self.created_on.day)
             
         
     

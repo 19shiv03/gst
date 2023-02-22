@@ -1,5 +1,5 @@
 from typing import Reversible
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DetailView
@@ -50,7 +50,18 @@ class SearchView(ListView):
     
     def get_queryset(self, *args, **kwargs):
         title = self.request.GET.get('post')
-       
-        return Post.objects.filter(title=title)
+        # return Post.objects.filter(title=title)
+        print(title)
+        if title:
+           result=Post.objects.filter(title=title)
+           if len(result)==0:
+               return Post.objects.all()
+        else:
+            result=Post.objects.all()
+        
+    
+        return result
+
+
 
         
