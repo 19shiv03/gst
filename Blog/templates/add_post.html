@@ -1,7 +1,7 @@
 {% extends "base.html" %} 
-{% block content %}
-      <style>
-       h3{ 
+{% comment %}{% block content %}
+       <style>
+       {% comment %} h3{ 
               color:white;
               text-align:center;
               margin: 25px 50px 75px;
@@ -15,10 +15,12 @@
              padding:20px;
              border-radius:20px;
              margin-bottom:20px;
+        } 
+        .form-control{
+          padding:20px;
         }
-        
   
-      </style>
+      </style> 
       
             <h3>Enter Details Of Your Post</h3>
            <div class="contain">
@@ -26,12 +28,12 @@
                     {% csrf_token %}  
                 <div class="container">  
              
-                {% comment %} <div class="form-group">  
+                 <div class="form-group">  
                 <label class="col-sm-1 col-form-label"></label>  
                 <div class="col-sm-4">  
                 <h2 >Enter Details</h2>  
                 </div>  
-              </div>   {% endcomment %}
+              </div>   
               <br>
                 <div class="form-group row">  
                 <label class="col-sm-2 col-form-label" >Title:</label>  
@@ -78,5 +80,50 @@
               </div>
             </form>  
           
-{% endblock content %}    
-     
+{% endblock content %}    {% endcomment %}
+{% block content %}
+ <style>
+   h2{
+     color:white;
+     margin-top:10px;
+     padding:10px;
+     text-align:center;
+     background-color:#3398E1;
+   }
+   .container{
+
+   }
+    
+</style> 
+<h2>Add Post</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3" style="margin-left:300px">
+          <form action="/create/" method="POST">
+          {% csrf_token %}
+          <div class="mb-3 mt-3">
+            <label for="title" class="form-label">Title:</label><br>
+            <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
+          </div>
+          <div class="mb-3">
+            <label for="author" class="form-label">Author:</label>
+            <input type="text" class="form-control" id="author" placeholder="Enter Author name" name="author">
+          </div>
+          <div class="mb-3">
+            <label for="author" class="form-label">Content:</label>
+            <textarea class="form-control" rows="3" col="3" id="content" name="content"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="author" class="form-label">Status:</label>
+            <input type="number" class="form-control" id="status" placeholder="0/1" name="status">
+          </div>
+          <div class="mb-3">
+            <label for="author" class="form-label">Date:</label>
+            <input type="datetime-local" class="form-control" id="date"  name="created_on">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+     </div>
+  </div>
+</div>
+{% endblock content %}

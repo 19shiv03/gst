@@ -4,6 +4,7 @@ from django.shortcuts import render,redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DetailView
 from django.views.generic.edit import CreateView,DeleteView,UpdateView
+from requests import post
 from .models import Post
 from .forms import BlogForm
 
@@ -50,7 +51,6 @@ class SearchView(ListView):
     
     def get_queryset(self, *args, **kwargs):
         title = self.request.GET.get('post')
-        
         if title:
            result=Post.objects.filter(title=title)
            if len(result)==0:

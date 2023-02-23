@@ -1,5 +1,6 @@
-{% extends "base.html" %}  
-{% block content %}
+ {% extends "base.html" %}  
+ {% block content %}
+{% comment %}
 <style>
 	h3{ 
 		color:white;
@@ -27,7 +28,42 @@
 	{{ form.as_p }}
 	<input type="submit" value="Save">
 </form> 
-</div>
-{% endblock content%} 
+</div> {% endcomment %}
 
+
+
+
+
+  <h2>Update Post</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3" style="margin-left:300px">
+          <form method="POST">
+          {% csrf_token %}
+         
+           <div class="mb-3 mt-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="title" name="author" placeholder={{form.title}}>  
+             
+          </div>
+           <div class="mb-3">
+            <label for="author" class="form-label">Author:</label>
+            <input type="text" class="form-control" id="author" name="author" placeholder={{form.author}} >
+          </div>
+          <div class="mb-3">
+            <label for="author" class="form-label">Content:</label>
+            <textarea class="form-control" rows="3" col="3" id="content" placeholder={{form.content}} name="content"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="author" class="form-label">Status:</label>
+            <input type="number" class="form-control" id="status" placeholder={{form.status}} name="status">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button> 
+          </form>
+     </div>
+  </div>
+</div>
+
+
+{% endblock content%}  
 
