@@ -27,21 +27,28 @@
           padding:20px; {% endcomment %}
           display:flex;
         }  
-        
+        h2{
+          color:white;
+          margin-top:20px;
+          padding:10px;
+          text-align:center;
+          background-color:#3398E1;
+        }
         
         
     </style>
+    <h2>List of posts</h2>
     <div class="both" style="padding:20px;">
     <div class="form" style="margin-left:130px; width:40%; float:left; ">
     <form class="search" method="GET" action="/search/">
       {% csrf_token %}
-      <input class="form-control" type="text" name='post' placeholder="search here">
+      <input class="form-control" type="text" name='post' placeholder="search via title">
       <button class='btn' style="background:Orange;margin-left:10px" type="submit">Search</button>  
     </form>
     <br>
     </div>
-    <div class="add" style="float:right; margin-right:235px;">
-      <a href="/create" class="btn btn-primary" style="background-color:Green">Add New Record</a>
+    <div class="add" style="float:right; margin-right:240px;">
+      <a href="/create" class="btn btn-primary" style="background-color:Green">Add New Post</a>
     </div>
   </div>
     <br>
