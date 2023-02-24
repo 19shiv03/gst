@@ -12,38 +12,8 @@ class BlogForm(forms.ModelForm):
     class Meta:  
         model = Post  
         fields = ['title','author','content','status','created_on']
+
+    
        
-        widgets={
 
-             'title': forms.TextInput(attrs={
-                'class': "form-control",
-                'style': 'max-width: 300px;',
-                'placeholder': 'title'
-                }),
-
-                'author': forms.TextInput(attrs={
-                'class': "form-control",
-                'style': 'max-width: 300px;',
-                'placeholder': 'author'
-                }),
-
-                'content': forms.Textarea(attrs={
-                'class': "form-control",
-                'style': 'max-width: 300px;',
-                'placeholder': 'content'
-                }),
-
-                'status': forms.NumberInput(attrs={
-                'class': "form-control",
-                'style': 'max-width: 300px;',
-                'placeholder': 'status'
-                }),
-
-                'created_on': forms.DateTimeInput(attrs={
-                'class': "form-control",
-                'style': 'max-width: 300px;',
-                'placeholder': 'date'
-                }),
-        }
-        
 

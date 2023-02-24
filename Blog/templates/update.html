@@ -1,39 +1,20 @@
- {% extends "base.html" %}  
- {% block content %}
-{% comment %}
-<style>
-	h3{ 
-		color:white;
-		text-align:center;
-		margin: 25px 50px 75px;
-		border-radius:10px;
-		background-color: #3398E1 ;
- }
-  .form{
-	   background-color:#e9f0f2;
-	   margin-left: 200px;
-	   margin-right: 200px;
-	   padding:30px;
-	   border-radius:20px;
-  }
-  input[type=submit]{
-	background-color: #adddef;
-  }
-	
-</style>
-<h3>Update Your Post</h3>
-<div class="form">
- <form method="post" style="margin-left:10px;">
-	{% csrf_token %}
-	{{ form.as_p }}
-	<input type="submit" value="Save">
-</form> 
-</div> {% endcomment %}
-
-
-
-
-
+{% extends 'base.html' %}
+{% block content %}
+ <style>
+    h2{
+     color:white;
+     margin-top:20px;
+     padding:10px;
+     text-align:center;
+     background-color:#3398E1;
+   }
+   .container{
+    margin-top:30px;
+   }
+   button{
+     margin-left:220px;
+   }
+ </style>
   <h2>Update Post</h2>
 <div class="container">
   <div class="row">
@@ -41,29 +22,43 @@
           <form method="POST">
           {% csrf_token %}
          
-           <div class="mb-3 mt-3">
+            <div class="form-group">
             <label for="title" class="form-label">Title:</label>
-            <input type="text" class="form-control" id="title" name="author" placeholder={{form.title}}>  
+           <input type="text" class="form-control" id="title" name="title" value="{{title}}">
              
           </div>
            <div class="mb-3">
             <label for="author" class="form-label">Author:</label>
-            <input type="text" class="form-control" id="author" name="author" placeholder={{form.author}} >
+            <input type="text" class="form-control" id="author" name="author" value={{author}} >
           </div>
           <div class="mb-3">
             <label for="author" class="form-label">Content:</label>
-            <textarea class="form-control" rows="3" col="3" id="content" placeholder={{form.content}} name="content"></textarea>
+            <textarea class="form-control"  rows="3" col="3" id="content" name="content">{{content}}</textarea>
           </div>
           <div class="mb-3">
             <label for="author" class="form-label">Status:</label>
-            <input type="number" class="form-control" id="status" placeholder={{form.status}} name="status">
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button> 
+            <input type="number" class="form-control" id="status" name="status" value={{status}}>
+            </div>
+          <button type="submit" class="btn btn-primary">Update</button> 
           </form>
      </div>
-  </div>
-</div>
-
-
+  </div></div> 
 {% endblock content%}  
+
+
+
+{% comment %} {% block content %}
+    <h1>Edit YourModel</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button class="btn btn-primary" type="submit">Save Changes</button>
+    </form>
+{% endblock %} {% endcomment %}
+
+
+
+
+ 
+
 

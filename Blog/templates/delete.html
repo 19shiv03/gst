@@ -1,17 +1,18 @@
 <style>
-    p{
+    h3{
         
         margin-top:30px;
-        text-align:center;
+        margin-left:510px;
     }
-    input[type=submit]{
+    button[type=submit]{
         margin-left:650px;
         background-color:red;
     }
 </style>
 <form method="post">
     {% csrf_token %}
-	<p>Are you sure you want to delete "{{ object }}"?</p>
-    <input type="submit" value="Confirm">
+	<h3>Are you sure you want to delete "{{ object }}"?</h3>
+    {% comment %} <input type="submit" value="Confirm"> {% endcomment %}
+    <button type="submit" class="btn btn-primary" value="confirm">Delete</button> 
 </form>
     

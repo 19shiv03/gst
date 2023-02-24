@@ -85,13 +85,16 @@
  <style>
    h2{
      color:white;
-     margin-top:10px;
+     margin-top:20px;
      padding:10px;
      text-align:center;
      background-color:#3398E1;
    }
    .container{
-
+       margin-top:30px;
+   }
+   button{
+     margin-left:220px;
    }
     
 </style> 
@@ -111,17 +114,17 @@
           </div>
           <div class="mb-3">
             <label for="author" class="form-label">Content:</label>
-            <textarea class="form-control" rows="3" col="3" id="content" name="content"></textarea>
+            <textarea class="form-control" rows="3" col="3" id="content" placeholder="Enter Content"  name="content"></textarea>
           </div>
           <div class="mb-3">
             <label for="author" class="form-label">Status:</label>
-            <input type="number" class="form-control" id="status" placeholder="0/1" name="status">
+            <input type="text" class="form-control" id="status" placeholder="Enter '0-Draft'/'1-Publish'" name="status">
           </div>
           <div class="mb-3">
             <label for="author" class="form-label">Date:</label>
             <input type="datetime-local" class="form-control" id="date"  name="created_on">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">create</button>
           </form>
      </div>
   </div>
