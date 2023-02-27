@@ -4,18 +4,18 @@
 {% block content %}
 
      <style>
-         table,th,td{
-            {% comment %} table-layout:fixed; {% endcomment %}
+         {% comment %} table,th,td{
+            table-layout:fixed; 
              max-width:70% !important; 
             margin-left:150px;
             border: 2px solid black !important;  
             padding:30px;
               
-        } 
+        } {% endcomment %}
         td,th{
             text-align:center;
             padding:10px;
-        }
+        } 
           
          input[type=search]
         {
@@ -39,7 +39,7 @@
     </style>
     <h2>List of posts</h2>
     <div class="both" style="padding:20px;">
-    <div class="form" style="margin-left:130px; width:40%; float:left; ">
+    <div class="form" style="margin-left:108px; width:40%; float:left; ">
     <form class="search" method="GET" action="/search/">
       {% csrf_token %}
       <input class="form-control" type="text" name='post' placeholder="search via title">
@@ -47,13 +47,14 @@
     </form>
     <br>
     </div>
-    <div class="add" style="float:right; margin-right:240px;">
+    <div class="add" style="float:right; margin-right:108px;">
       <a href="/create" class="btn btn-primary" style="background-color:Green">Add New Post</a>
     </div>
   </div>
     <br>
-<table class="table">
-    <thead>
+<div class="container">  
+<table class="table table-bordered  table-sm table-striped">
+    <thead class="thead-dark">
       <tr>
         <th scope="col">Title</th>
         <th scope="col">Author</th>
@@ -80,7 +81,7 @@
       {% endfor %}
     </tbody>
 </table>
-
+</div>
 
 {% comment %} <div>
   <div><a href="/create" class="btn btn-primary" style="background-color:Green">Add New Record</a></div>

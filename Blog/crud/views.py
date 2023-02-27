@@ -42,7 +42,7 @@ class UpdatePost(UpdateView):
     def get_initial(self) -> dict:
         global initial
         initial = super(UpdatePost, self).get_initial()
-        print("initial data", initial)
+        
 
         # retrieve current object
         habit_object = self.get_object()
@@ -51,7 +51,7 @@ class UpdatePost(UpdateView):
         initial["author"] = habit_object.author
         initial["content"] = habit_object.content
         initial["status"] = habit_object.status
-        print(initial)
+        
         return initial
     
     def get_context_data(self, **kwargs):
